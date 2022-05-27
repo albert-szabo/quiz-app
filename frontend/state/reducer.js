@@ -26,7 +26,13 @@ function wheel(state = initialWheelState, action) {
 
 const initialQuizState = null
 function quiz(state = initialQuizState, action) {
-  return state
+  switch (action.type) {
+    case types.SET_QUIZ_INTO_STATE: {
+      
+    }
+    default:
+      return state
+  }
 }
 
 const initialSelectedAnswerState = null

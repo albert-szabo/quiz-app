@@ -18,7 +18,11 @@ export function selectAnswer() { }
 
 export function setMessage() { }
 
-export function setQuiz() { }
+export function setQuiz() { 
+  return {
+    type: types.SET_QUIZ_INTO_STATE
+  }
+}
 
 export function inputChange() { }
 
