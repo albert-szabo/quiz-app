@@ -21,9 +21,9 @@ export function Quiz(props) {
 
   return (
     <div id="wrapper">
-      {
+      { props.quiz ? (
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        true ? (
+        // true ? (
           <>
             <h2>{props.quiz.question}</h2>
 
@@ -31,14 +31,14 @@ export function Quiz(props) {
 
             {props.selectedAnswer === props.quiz.answers[0].answer_id ? (
               <div className="answer selected">
-                {props.answers[0].text}
+                {props.quiz.answers[0].text}
                 <button>
                   SELECTED
                 </button>
               </div>
               ) : (
               <div className="answer">
-                {props.answers[0].text}
+                {props.quiz.answers[0].text}
                 <button onClick={handleUpperAnswerSelectionClick}>
                   Select
                 </button>
@@ -47,14 +47,14 @@ export function Quiz(props) {
 
             {props.selectedAnswer === props.quiz.answers[0].answer_id ? (
               <div className="answer selected">
-                {props.answers[1].text}
+                {props.quiz.answers[1].text}
                 <button>
                   SELECTED
                 </button>
               </div>
               ) : (
               <div className="answer">
-                {props.answers[1].text}
+                {props.quiz.answers[1].text}
                 <button onClick={handleLowerAnswerSelectionClick}>
                   Select
                 </button>
