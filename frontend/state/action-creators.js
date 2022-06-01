@@ -42,7 +42,11 @@ export function inputChange(name, value) {
   }
 }
 
-export function resetForm() { }
+export function resetForm() { 
+  return {
+    type: types.RESET_FORM
+  }
+}
 
 // ❗ Async action creators
 export function fetchQuiz() {
@@ -82,11 +86,23 @@ export function postAnswer(quiz_ID, selectedAnswer_ID) {
   }
 }
 
-export function postQuiz() {
+export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
   return function (dispatch) {
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state
     // - Dispatch the resetting of the form
+
+    axios.post('http://localhost:9000/api/quiz/new', {
+      question_text: newQuestion,
+      true_answer_text: newTrueAnswer,
+      false_answer_text: newFalseAnswer
+    })
+      .then(response => {
+        console.log(response);
+        dispatch(setMessage(response.data.message));
+        dispatch(resetForm());
+      })
+      .catch(error => console.error({error}));
   }
 }
 

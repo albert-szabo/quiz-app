@@ -10,7 +10,7 @@ export function Form(props) {
 
   const onSubmit = event => {
     event.preventDefault();
-    props.postQuiz();
+    props.postQuiz(props.form.newQuestion, props.form.newTrueAnswer, props.form.newFalseAnswer);
   }
 
   const isDisabled = () => {

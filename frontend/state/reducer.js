@@ -71,6 +71,9 @@ function form(state = initialFormState, action) {
     case types.INPUT_CHANGE: {
       return state = {...state, [action.payload.name]: action.payload.value}
     }
+    case types.RESET_FORM: {
+      return state = initialFormState
+    }
     default:
       return state
   }
