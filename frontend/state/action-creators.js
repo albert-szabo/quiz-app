@@ -58,7 +58,6 @@ export function fetchQuiz() {
     dispatch(setQuiz(null));
     axios.get('http://localhost:9000/api/quiz/next')
       .then(response => {
-        console.log(response);
         dispatch(setQuiz(response.data));
       })
       .catch(error => console.error({error}));
@@ -77,7 +76,6 @@ export function postAnswer(quiz_ID, selectedAnswer_ID) {
       answer_id: selectedAnswer_ID
     })
       .then(response => {
-        console.log(response);
         dispatch(selectAnswer(null));
         dispatch(setMessage(response.data.message));
         dispatch(fetchQuiz());
