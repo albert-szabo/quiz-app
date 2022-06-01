@@ -21,7 +21,12 @@ export function selectAnswer(answerToSet) {
   }
 }
 
-export function setMessage() { }
+export function setMessage(messageToSet) { 
+  return {
+    type: types.SET_INFO_MESSAGE,
+    payload: messageToSet
+  }
+}
 
 export function setQuiz(valueToSet) { 
   return {
@@ -51,12 +56,24 @@ export function fetchQuiz() {
   }
 }
 
-export function postAnswer() {
+export function postAnswer(quiz_ID, selectedAnswer_ID) {
   return function (dispatch) {
     // On successful POST:
     // - Dispatch an action to reset the selected answer state
     // - Dispatch an action to set the server message to state
     // - Dispatch the fetching of the next quiz
+
+    axios.post('http://localhost:9000/api/quiz/answer', {
+      quiz_id: quiz_ID,
+      answer_id: selectedAnswer_ID
+    })
+      .then(response => {
+        console.log(response);
+        dispatch(selectAnswer(null));
+        dispatch(setMessage(response.data.message));
+        dispatch(fetchQuiz());
+      })
+      .catch(error => console.error({error}));
   }
 }
 

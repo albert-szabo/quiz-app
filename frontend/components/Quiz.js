@@ -18,7 +18,7 @@ export function Quiz(props) {
   }
 
   const handleAnswerSubmissionClick = () => {
-    props.postAnswer();
+    props.postAnswer(props.quiz.quiz_id, props.selectedAnswer);
   }
 
   return (
