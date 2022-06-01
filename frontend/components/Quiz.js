@@ -63,7 +63,7 @@ export function Quiz(props) {
 
             </div>
 
-            {props.selectedAnswer ? <button id='submitAnswerBtn' disabled=''>Submit answer</button> : <button id="submitAnswerBtn" onClick={handleAnswerSubmissionClick}>Submit answer</button>}
+            {props.selectedAnswer ? <button id="submitAnswerBtn" onClick={handleAnswerSubmissionClick}>Submit answer</button> : <button id='submitAnswerBtn' disabled='true'>Submit answer</button>}
           </>
         ) : 'Loading next quiz...'
       }
