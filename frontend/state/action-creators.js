@@ -35,7 +35,12 @@ export function setQuiz(valueToSet) {
   }
 }
 
-export function inputChange() { }
+export function inputChange(name, value) { 
+  return {
+    type: types.INPUT_CHANGE,
+    payload: {name, value}
+  }
+}
 
 export function resetForm() { }
 
