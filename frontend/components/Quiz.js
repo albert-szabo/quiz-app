@@ -4,7 +4,9 @@ import * as actionCreators from '../state/action-creators';
 
 export function Quiz(props) {
   useEffect(() => {
-    props.fetchQuiz();
+    if (!props.quiz) {
+      props.fetchQuiz();
+    }
   }, []);
 
   const handleUpperAnswerSelectionClick = () => {
@@ -22,8 +24,6 @@ export function Quiz(props) {
   return (
     <div id="wrapper">
       { props.quiz ? (
-        // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        // true ? (
           <>
             <h2>{props.quiz.question}</h2>
 
