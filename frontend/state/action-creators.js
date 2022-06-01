@@ -96,7 +96,6 @@ export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
       false_answer_text: newFalseAnswer
     })
       .then(response => {
-        console.log(response);
         dispatch(setMessage(`Congrats: "${newQuestion}" is a great question!`));
         dispatch(resetForm());
       })
