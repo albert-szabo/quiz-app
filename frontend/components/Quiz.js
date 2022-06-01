@@ -45,7 +45,7 @@ export function Quiz(props) {
               </div>
               ) }
 
-            {props.selectedAnswer === props.quiz.answers[0].answer_id ? (
+            {props.selectedAnswer === props.quiz.answers[1].answer_id ? (
               <div className="answer selected">
                 {props.quiz.answers[1].text}
                 <button>

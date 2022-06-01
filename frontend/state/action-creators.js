@@ -14,7 +14,12 @@ export function moveCounterClockwise() {
   }
 }
 
-export function selectAnswer() { }
+export function selectAnswer(answerToSet) { 
+  return {
+    type: types.SET_SELECTED_ANSWER,
+    payload: answerToSet
+  }
+}
 
 export function setMessage() { }
 

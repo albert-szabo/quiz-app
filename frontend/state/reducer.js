@@ -29,9 +29,9 @@ function quiz(state = initialQuizState, action) {
   switch (action.type) {
     case types.SET_QUIZ_INTO_STATE: {
       if (action.payload) {
-        state = action.payload
+        return state = action.payload
       } else {
-        state = null
+        return state = null
       }
     }
     default:
@@ -41,7 +41,13 @@ function quiz(state = initialQuizState, action) {
 
 const initialSelectedAnswerState = null
 function selectedAnswer(state = initialSelectedAnswerState, action) {
-  return state
+  switch(action.type) {
+    case types.SET_SELECTED_ANSWER: {
+      return state = action.payload
+    }
+    default:
+      return state
+  }
 }
 
 const initialMessageState = ''
