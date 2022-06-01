@@ -99,7 +99,7 @@ export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
     })
       .then(response => {
         console.log(response);
-        dispatch(setMessage(response.data.message));
+        dispatch(setMessage(`Congrats: "${newQuestion}" is a great question!`));
         dispatch(resetForm());
       })
       .catch(error => console.error({error}));
